@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './models/dummy_category.dart';
-import './widgets/category_item.dart';
-
+// import '../models/dummy_category.dart';
+import '../dummy-data.dart';
+import '../widgets/category_item.dart';
 class CategoryListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
