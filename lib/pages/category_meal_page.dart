@@ -28,6 +28,7 @@ class CategoryMealPage extends StatelessWidget {
             return MealItem(
               id: meals[index].id,
               title: meals[index].title,
+              imageUrl: meals[index].imageUrl,
               duration: meals[index].duration,
               complexity: meals[index].complexity,
               affordability: meals[index].affordability,

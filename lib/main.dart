@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import './pages/category_list_page.dart';
 import './pages/category_meal_page.dart';
+import './pages/meal_detail.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (ctx) => CategoryListPage(), //默认 / 标识主页
         CategoryMealPage.routeName: (ctx) => CategoryMealPage(),
+        MealDetail.routeName: (ctx) => MealDetail(),
       },
     );
   }

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
-
+import '../pages/meal_detail.dart';
 class MealItem extends StatelessWidget {
   final String id;
   final String title;
+  final String imageUrl;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
   MealItem(
       {@required this.id,
       @required this.title,
+      @required this.imageUrl,
       @required this.duration,
       @required this.complexity,
       @required this.affordability});
@@ -45,10 +47,13 @@ class MealItem extends StatelessWidget {
     }
   }
 
+  void routeToDetail(BuildContext ctx,String id) {
+    Navigator.of(ctx).pushNamed(MealDetail.routeName,arguments: id);
+  }
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: ()=>routeToDetail(context,id),
       child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -63,7 +68,7 @@ class MealItem extends StatelessWidget {
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15)),
                     child: Image.network(
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
+                      imageUrl,
                       height: 250,
                       width: double.infinity,
                       fit: BoxFit.cover,
@@ -119,6 +124,7 @@ class MealItem extends StatelessWidget {
                         Icon(
                           Icons.attach_money,
                         ),
+          
                         SizedBox(
                           width: 6,
                         ),
