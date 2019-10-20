@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './pages/category_list_page.dart';
 import './pages/category_meal_page.dart';
 import './pages/meal_detail.dart';
 import './pages/tabs_page.dart';
+import './pages/filters_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,18 +28,10 @@ class MyApp extends StatelessWidget {
       //home: CategoryListPage(),
       initialRoute: '/', //也可以指定非'/'的默认路由名
       routes: {
-        // '/': (ctx) => CategoryListPage(), //默认 / 标识主页
         '/': (ctx) => TabsPage(), //默认 / 标识主页
         CategoryMealPage.routeName: (ctx) => CategoryMealPage(),
         MealDetail.routeName: (ctx) => MealDetail(),
-      },
-      onGenerateRoute: (settings){
-        print('onGenerateRoute!');
-        // return MaterialPageRoute(builder: (ctx)=>CategoryListPage());
-      },
-      onUnknownRoute: (settings){
-        print('onUnknownRoute!');
-        //return MaterialPageRoute(builder: (ctx)=>CategoryListPage());
+        FiltersPage.routeName: (ctx) => FiltersPage(),
       },
     );
   }

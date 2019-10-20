@@ -1,7 +1,7 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import '../pages/category_list_page.dart';
 import '../pages/favorite_tab_page.dart';
+import '../pages/main_drawer.dart';
 
 class TabsPage extends StatefulWidget {
   @override
@@ -26,6 +26,7 @@ class _TabsPageState extends State<TabsPage> {
         appBar: AppBar(
           title: Text(tabPages[_selectIndex]['title']),
         ),
+        drawer: MainDrawer(),
         body: tabPages[_selectIndex]['page'],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Theme.of(context).primaryColor,
