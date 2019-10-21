@@ -27,10 +27,10 @@ class _MyAppState extends State<MyApp> {
   List<Meal> favoriteMeals = [];
 
   void toggleFavoriteMeal(String id) {
-    bool isFavorite = favoriteMeals.any((meal) => meal.id == id);
+    int existIndex = favoriteMeals.indexWhere((meal) => meal.id == id);
     setState(() {
-      if (isFavorite) {
-        favoriteMeals.removeWhere((meal) => meal.id == id);
+      if (existIndex >= 0) {
+        favoriteMeals.removeAt(existIndex);
       } else {
         favoriteMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == id));
       }
