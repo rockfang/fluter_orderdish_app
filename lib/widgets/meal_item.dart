@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../pages/meal_detail.dart';
+
 class MealItem extends StatelessWidget {
   final String id;
   final String title;
@@ -8,13 +9,14 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-  MealItem(
-      {@required this.id,
-      @required this.title,
-      @required this.imageUrl,
-      @required this.duration,
-      @required this.complexity,
-      @required this.affordability});
+  MealItem({
+    @required this.id,
+    @required this.title,
+    @required this.imageUrl,
+    @required this.duration,
+    @required this.complexity,
+    @required this.affordability,
+  });
 
   String get complexText {
     switch (complexity) {
@@ -31,7 +33,8 @@ class MealItem extends StatelessWidget {
         return "未知";
     }
   }
-   String get affordText {
+
+  String get affordText {
     switch (affordability) {
       case Affordability.Affordable:
         return "便宜";
@@ -47,13 +50,14 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void routeToDetail(BuildContext ctx,String id) {
-    Navigator.of(ctx).pushNamed(MealDetail.routeName,arguments: id);
+  void routeToDetail(BuildContext ctx, String id) {
+    Navigator.of(ctx).pushNamed(MealDetail.routeName, arguments: id);
   }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>routeToDetail(context,id),
+      onTap: () => routeToDetail(context, id),
       child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -105,7 +109,10 @@ class MealItem extends StatelessWidget {
                         SizedBox(
                           width: 6,
                         ),
-                        FittedBox(child: Text('$duration 分钟',style: TextStyle(fontFamily: "")))//去掉字体，处理显示数字大小不一致问题。
+                        FittedBox(
+                            child: Text('$duration 分钟',
+                                style: TextStyle(
+                                    fontFamily: ""))) //去掉字体，处理显示数字大小不一致问题。
                       ],
                     ),
                     Row(
@@ -124,7 +131,6 @@ class MealItem extends StatelessWidget {
                         Icon(
                           Icons.attach_money,
                         ),
-          
                         SizedBox(
                           width: 6,
                         ),

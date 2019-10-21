@@ -15,10 +15,10 @@ class Meal {
   final List<String> ingredients;
   final List<String> steps;
 
-  final bool isGlutenFree;
-  final bool isVegan;
-  final bool isVegetarian;
-  final bool isLactoseFree;
+  final bool isGlutenFree;//不含麸质
+  final bool isVegan;//严格的素食主义者
+  final bool isVegetarian;//普通的素食主义者
+  final bool isLactoseFree;//去乳糖饮食
 
   const Meal(
       {@required this.id,
